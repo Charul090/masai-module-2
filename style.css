@@ -1,0 +1,25 @@
+header{
+    background-color: #f8e5ee;
+}
+
+header a {
+    text-decoration: none;
+
+}
+
+
+
+#icon{
+    width:30px;
+    height:30px;
+}
+
+@media only screen and (min-width: 992px) {
+    #nav-info{
+        width:30%;
+    }
+    
+    #nav-content > div{
+        width:100%;
+    }
+}
