@@ -1,3 +1,5 @@
+import {displayPages,current_page} from './pagination.js'
+
 window.addEventListener("load",()=>{
     let table=document.querySelector("#main-table");
     table.classList.add("d-none")
@@ -9,11 +11,17 @@ let currency=document.querySelector("#currency");
 let order=document.querySelector("#order");
 let pages=document.querySelector("#per-page");
 
-order.addEventListener("change",changeDisplay)
-pages.addEventListener("change",changeDisplay)
-currency.addEventListener("change",changeDisplay)
+order.addEventListener("change",()=>{
+    changeDisplay(current_page);
+})
+pages.addEventListener("change",()=>{
+    changeDisplay(current_page);
+})
+currency.addEventListener("change",()=>{
+    changeDisplay(current_page);
+})
 
-function changeDisplay(){
+export function changeDisplay(page){
     if(currency.value !== ""){
         let x=currency.value;
         let y=document.querySelector("#order").value;
@@ -22,12 +30,12 @@ function changeDisplay(){
         let table=document.querySelector("#main-table");
         table.classList.add("d-none");
     
-        getInfo(x,y,z,1)
+        getInfo(x,y,z,page,"start")
     }
 }
 
 
-function getInfo(curr,order,pages,page){
+function getInfo(curr,order,pages,page,status){
     let url=new URL("https://api.coingecko.com/api/v3/coins/markets");
     let params=new URLSearchParams();
     params.set("vs_currency",curr);
@@ -44,7 +52,8 @@ function getInfo(curr,order,pages,page){
     spinner.classList.remove("d-none");
     spinner.classList.add("d-flex");
 
-    console.log(url.href)
+    let pagi=document.querySelector("#display-pagination");
+    pagi.innerHTML="";
 
     fetch(url.href)
     .then((res)=>res.json())
@@ -52,6 +61,10 @@ function getInfo(curr,order,pages,page){
         spinner.classList.toggle("d-flex");
         spinner.classList.toggle("d-none");
         renderData(data);
+
+        if(status === "start"){
+            displayPages(page)
+        }
     })
 }
 
