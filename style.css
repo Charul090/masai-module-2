@@ -1,13 +1,15 @@
 header{
-    background-color: #f8e5ee;
+    background-color: white;
 }
+
+body{
+    background-color: #F3E5F5;
+}
+
 
 header a {
     text-decoration: none;
-
 }
-
-
 
 #icon{
     width:30px;

@@ -43,8 +43,8 @@
                     </div>
                     <div class="col-auto">
                         <select class="form-control form-control-sm" id="order">
-                            <option value="desc">Descending</option>
-                            <option value="asc" selected>Ascending</option>                            
+                            <option value="market_cap_desc" selected>Descending</option>
+                            <option value="market_cap_asc">Ascending</option>                            
                         </select>
                     </div>
                     <div class="col-auto">
@@ -64,15 +64,16 @@
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
-                <table class="table table-hover" id="main-table">
+                <table class="table table-hover table-striped bg-white" id="main-table">
                     <thead class="thead-dark">
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Symbol</th>
                             <th>Price</th>
                             <th>high</th>
                             <th>low</th>
-                            <th>Change%</th>
+                            <th>Change(%)</th>
                         </tr>
                     </thead>
                     <tbody id="table-display">
