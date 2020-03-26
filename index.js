@@ -7,21 +7,29 @@ window.addEventListener("load",()=>{
 
 let coin=id();
 
+let count=0;
+
 let currency=document.querySelector("#currency");
 let order=document.querySelector("#order");
 let pages=document.querySelector("#per-page");
 
 order.addEventListener("change",()=>{
-    changeDisplay(current_page);
+    changeDisplay(current_page,"change");
 })
 pages.addEventListener("change",()=>{
-    changeDisplay(current_page);
+    changeDisplay(current_page,"change");
 })
 currency.addEventListener("change",()=>{
-    changeDisplay(current_page);
+    if(count === 0){
+        changeDisplay(current_page,"start");
+        count++;
+    }
+    else{
+        changeDisplay(current_page,"change");
+    }
 })
 
-export function changeDisplay(page){
+export function changeDisplay(page,status){
     if(currency.value !== ""){
         let x=currency.value;
         let y=document.querySelector("#order").value;
@@ -29,8 +37,14 @@ export function changeDisplay(page){
     
         let table=document.querySelector("#main-table");
         table.classList.add("d-none");
+
+        let warning=document.querySelector("#warning");
+
+        if(status === "start"){
+            warning.classList.add("d-none");
+        }
     
-        getInfo(x,y,z,page,"start")
+        getInfo(x,y,z,page,status)
     }
 }
 
@@ -62,9 +76,8 @@ function getInfo(curr,order,pages,page,status){
         spinner.classList.toggle("d-none");
         renderData(data);
 
-        if(status === "start"){
-            displayPages(page)
-        }
+        displayPages(page,status)
+        
     })
 }
 
