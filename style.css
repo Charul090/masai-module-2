@@ -4,6 +4,10 @@ header{
     color:#4A148C;
 }
 
+canvas{
+    background-color: black;
+}
+
 body{
     background-color: #F3E5F5;
 }

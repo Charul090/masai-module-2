@@ -89,6 +89,7 @@ function renderData(data){
     table.classList.remove("d-none");
 
     data.forEach(element => {
+        coin.setId(element["id"]);
         displayTable(element);
     });
     
@@ -149,3 +150,22 @@ function id(){
 
     return {setId,getIds,clearIds};
 }
+
+
+
+let table=document.querySelector("#main-table");
+
+table.addEventListener("click",function(event){
+    let trows=document.querySelectorAll("#table-display > tr");
+    let array=coin.getIds();
+
+    if(event.target.parentNode.nodeName === "TR"){
+        let x=event.target.parentNode;
+        for(let i=0;i<trows.length;i++){
+            if(trows[i] === x){
+                console.log(array[i]);
+                localStorage.setItem("coin_id",JSON.stringify(array[i]));
+            }
+        }
+    }
+})
