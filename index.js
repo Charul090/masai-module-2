@@ -100,14 +100,19 @@ function displayTable(obj){
 
     let rank=document.createElement("td");
     let name=document.createElement("td");
+    let name_link=document.createElement("a");
     let sym=document.createElement("td")
     let price=document.createElement("td");
     let high=document.createElement("td");
     let low=document.createElement("td");
     let change=document.createElement("td");
 
+    name_link.textContent=obj["name"];
+    name_link.setAttribute("href","#");
+    name_link.classList.add("text-reset");
+    name.append(name_link);
+
     rank.textContent=obj["market_cap_rank"];
-    name.textContent=obj["name"]
     sym.textContent=obj["symbol"]
     price.textContent=obj["current_price"];
     high.textContent=obj["high_24h"];
@@ -156,10 +161,12 @@ function id(){
 let table=document.querySelector("#main-table");
 
 table.addEventListener("click",function(event){
+    event.preventDefault();
+
     let trows=document.querySelectorAll("#table-display > tr");
     let array=coin.getIds();
 
-    if(event.target.parentNode.nodeName === "TR"){
+    if(event.target.parentNode.parentNode.nodeName === "TR"){
         let x=event.target.parentNode;
         for(let i=0;i<trows.length;i++){
             if(trows[i] === x){
