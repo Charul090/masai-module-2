@@ -163,9 +163,10 @@ table.addEventListener("click",function(event){
         let x=event.target.parentNode;
         for(let i=0;i<trows.length;i++){
             if(trows[i] === x){
-                console.log(array[i]);
                 localStorage.setItem("coin_id",JSON.stringify(array[i]));
             }
         }
+
+        window.location.assign("coin.html")
     }
 })

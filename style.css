@@ -9,12 +9,16 @@ canvas{
 }
 
 body{
-    background-color: #F3E5F5;
+    background-color: #FAFAFA;
 }
 
 
 header a {
     text-decoration: none;
+}
+
+#coin-name{
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #icon{

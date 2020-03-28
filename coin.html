@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    <header class="container-fluid px-md-5 py-1 mb-3">
+    <header class="container-fluid px-md-5 py-1 mb-3 shadow-sm">
         <nav class="navbar navbar-expand-lg justify-content-between">
             <a class="navbar-brand text-reset text-decoration-none navbar-text" href="index.html">
                 <img src="resources/icon.png" id="icon" alt="icon" class="d-inline-block align-top" />
@@ -30,11 +30,24 @@
         </nav>
     </header>
     <main class="container">
-        <div class="row">
-            <div class="col-6"></div>
-            <div class="col-1"></div>
-            <div class="col-5">
-                <div class="border border-secondary rounded p-1 mb-1">
+        <div class="row p-2 d-none" id="main-display">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-12 d-flex mb-3" id="coin-title">
+                        <img class="img-fluid mr-2" src=""/>
+                        <h1 id="coin-name"></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <dl class="row" id="coin-list">
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5 mb-2 offset-1">
+                <div class="p-1 mb-1 ">
                     <canvas class="text-white p-1" id="myChart" width="100" height="100"></canvas>
                 </div>
                 <div>
@@ -45,6 +58,45 @@
                         <option value="inr">Indian Rupees</option>
                     </select>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" id="display-prices">
+                <ul class="nav nav-tabs d-none" id="info-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link text-decoration-none active" id="price-tab" data-toggle="tab" href="#price-content" role="tab">Price</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link  text-decoration-none" id="desc-tab" data-toggle="tab" href="#desc-content" role="tab">Description</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-decoration-none" id="social-tab" data-toggle="tab" href="#social-content" role="tab">Social</a>
+                      </li>
+                </ul>
+                <div class="tab-content d-none" id="info-content">
+                    <div class="tab-pane fade show active p-2" id="price-content" role="tabpanel">
+                        <div class="d-flex justify-content-between mb-3 py-4" id="price-row1">
+                            <p id="value"></p>
+                            <p id="low"></p>
+                            <p id="high"></p>
+                            <p id="mar-cap"></p>
+                            <p id="cap-change"></p>
+                        </div>
+                        <div class="d-flex justify-content-between" id="price-row2">
+                            <p id="change-24"></p>
+                            <p id="change-7"></p>
+                            <p id="change-30"></p>
+                            <p id="change-200"></p>
+                            <p id="change-1"></p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-2" id="desc-content" role="tabpanel">
+
+                    </div>
+                    <div class="tab-pane fade p-2" id="social-content" role="tabpanel">
+
+                    </div>
+                  </div>
             </div>
         </div>
     </main>
