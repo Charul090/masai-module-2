@@ -160,7 +160,7 @@ table.addEventListener("click",function(event){
     let array=coin.getIds();
 
     if(event.target.parentNode.parentNode.nodeName === "TR"){
-        let x=event.target.parentNode;
+        let x=event.target.parentNode.parentNode;
         for(let i=0;i<trows.length;i++){
             if(trows[i] === x){
                 localStorage.setItem("coin_id",JSON.stringify(array[i]));
