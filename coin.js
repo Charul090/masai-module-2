@@ -395,4 +395,8 @@ function displaySocial(data){
 
     let main_display=document.querySelector("#main-display");
     main_display.classList.remove("d-none");
+
+    let spinner=document.querySelector("#display-spinner");
+    spinner.classList.remove("d-flex")
+    spinner.classList.add("d-none")
 }
