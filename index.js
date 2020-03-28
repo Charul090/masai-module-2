@@ -2,12 +2,11 @@ import {displayPages,current_page} from './pagination.js'
 
 window.addEventListener("load",()=>{
     let table=document.querySelector("#main-table");
-    table.classList.add("d-none")
+    table.classList.add("d-none");
+    changeDisplay(current_page,"start");
 });
 
 let coin=id();
-
-let count=0;
 
 let currency=document.querySelector("#currency");
 let order=document.querySelector("#order");
@@ -20,13 +19,7 @@ pages.addEventListener("change",()=>{
     changeDisplay(current_page,"change");
 })
 currency.addEventListener("change",()=>{
-    if(count === 0){
-        changeDisplay(current_page,"start");
-        count++;
-    }
-    else{
-        changeDisplay(current_page,"change");
-    }
+    changeDisplay(current_page,"change");
 })
 
 export function changeDisplay(page,status){
