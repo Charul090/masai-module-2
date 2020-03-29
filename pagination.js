@@ -75,10 +75,10 @@ export function displayPages(page,status){
             }
             else{
                 if(e.target.id === "li-next" || e.target.textContent === "\u00BB"){
-                    addPageNo(e.target.textContent)
+                    nextPage(e.target.textContent)
                 }
                 else if(e.target.id === "li-prev" || e.target.textContent === "\u00AB"){
-                    subPageNo(e.target.textContent)
+                    previousPage(e.target.textContent)
                 }
             }
         })
@@ -90,20 +90,19 @@ function changePage(num){
     num = Number(num);
     
     let current = document.querySelector(`#li${current_page}`);
-    let next=document.querySelector(`#li${num}`);
+    
 
     if(current){
         current.classList.toggle("active");
-    }
-
-    next.classList.toggle("active");
+    }    
 
     current_page=num;
     changeDisplay(current_page,"change");
+    
 }
 
 
-function addPageNo(num){
+function nextPage(num){
     num=+num;
 
     let pages=document.querySelectorAll("#display-pagination > li > a");
@@ -113,21 +112,29 @@ function addPageNo(num){
         prev[6].classList.add("disabled")
     }
     else{
-        for(let i=1;i<pages.length-1;i++){
-            if(i !== 0 || i !== 6){
-                let page = pages[i].textContent;
-                page= Number(page)+5;
-                pages[i].textContent=page;
-    
-                if(prev[i].classList.contains("active")){
-                    prev[i].classList.remove("active")
+        if(current_page % 5 === 0){
+            for(let i=1;i<pages.length-1;i++){
+                if(i !== 0 || i !== 6){
+                    let page = pages[i].textContent;
+                    page= Number(page)+5;
+                    pages[i].textContent=page;
+        
+                    if(prev[i].classList.contains("active")){
+                        prev[i].classList.remove("active")
+                    }
+                    
+                    if(pages[i].textContent == current_page){
+                        prev[i].classList.add("active")
+                    }
+                    pages[i].setAttribute("id",`li${page}`)
                 }
-                
-                if(pages[i].textContent == current_page){
-                    prev[i].classList.add("active")
-                }
-                pages[i].setAttribute("id",`li${page}`)
             }
+
+            changePage(current_page+1);
+        }
+
+        else{
+            changePage(current_page+1);
         }
     }
     if(pages[1].textContent != 1){
@@ -139,7 +146,7 @@ function addPageNo(num){
     }
 }
 
-function subPageNo(num){
+function previousPage(num){
     num=+num;
 
     let pages=document.querySelectorAll("#display-pagination > li > a");
@@ -149,21 +156,29 @@ function subPageNo(num){
         prev[0].classList.add("disabled")
     }
     else{
-        for(let i=1;i<pages.length-1;i++){
-            if(i !== 0 || i !== 6){
-                let page = pages[i].textContent;
-                page= Number(page)-5;
-                pages[i].textContent=page;
-    
-                if(prev[i].classList.contains("active")){
-                    prev[i].classList.remove("active")
+        if(current_page % 5 === 0){
+            for(let i=1;i<pages.length-1;i++){
+                if(i !== 0 || i !== 6){
+                    let page = pages[i].textContent;
+                    page= Number(page)-5;
+                    pages[i].textContent=page;
+        
+                    if(prev[i].classList.contains("active")){
+                        prev[i].classList.remove("active")
+                    }
+                    
+                    if(pages[i].textContent == current_page){
+                        prev[i].classList.add("active")
+                    }
+                    pages[i].setAttribute("id",`li${page}`)
                 }
-                
-                if(pages[i].textContent == current_page){
-                    prev[i].classList.add("active")
-                }
-                pages[i].setAttribute("id",`li${page}`)
             }
+
+            changePage(current_page-1);
+        }
+
+        else{
+            changePage(current_page-1)
         }
     }
 
