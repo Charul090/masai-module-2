@@ -29,7 +29,7 @@
             </div> 
         </nav>
     </header>
-    <main class="container">
+    <main class="container-md">
         <div class="row">
             <div class="col-12">
                 <div id="display-spinner" class="d-flex justify-content-center m-5 p-5">
@@ -40,22 +40,22 @@
             </div>
         </div>
         <div class="row p-2 d-none" id="main-display">
-            <div class="col-6">
+            <div class="col-12 col-sm-6">
                 <div class="row">
-                    <div class="col-12 d-flex mb-3" id="coin-title">
+                    <div class="col-6 offset-3 offset-sm-0 col-sm-12 d-flex mb-3" id="coin-title">
                         <img class="img-fluid mr-2" src=""/>
                         <h1 id="coin-name"></h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6 offset-3 offset-sm-0 col-sm-12">
                         <dl class="row" id="coin-list">
 
                         </dl>
                     </div>
                 </div>
             </div>
-            <div class="col-5 mb-2 offset-1">
+            <div class="col-10 offset-1 offset-sm-0 col-sm-6 col-lg-5 mb-2 offset-lg-1">
                 <div class="p-1 mb-1 ">
                     <canvas class="text-white p-1" id="myChart" width="100" height="100"></canvas>
                 </div>
@@ -84,19 +84,19 @@
                 </ul>
                 <div class="tab-content d-none" id="info-content">
                     <div class="tab-pane fade show active p-2" id="price-content" role="tabpanel">
-                        <div class="d-flex justify-content-between mb-3 py-4" id="price-row1">
-                            <p id="value"></p>
-                            <p id="low"></p>
-                            <p id="high"></p>
-                            <p id="mar-cap"></p>
-                            <p id="cap-change"></p>
+                        <div class="d-flex flex-wrap flex-column flex-sm-row justify-content-between mb-2 py-4" id="price-row1">
+                            <p class="flex-fill" id="value"></p>
+                            <p class="flex-fill" id="low"></p>
+                            <p class="flex-fill" id="high"></p>
+                            <p class="flex-fill" id="mar-cap"></p>
+                            <p class="flex-fill" id="cap-change"></p>
                         </div>
-                        <div class="d-flex justify-content-between" id="price-row2">
-                            <p id="change-24"></p>
-                            <p id="change-7"></p>
-                            <p id="change-30"></p>
-                            <p id="change-200"></p>
-                            <p id="change-1"></p>
+                        <div class="d-flex flex-wrap flex-column flex-sm-row justify-content-between" id="price-row2">
+                            <p class="flex-fill mr-md-2 mr-lg-0" id="change-24"></p>
+                            <p class="flex-fill mr-md-2 mr-lg-0" id="change-7"></p>
+                            <p class="flex-fill mr-md-2 mr-lg-0" id="change-30"></p>
+                            <p class="flex-fill " id="change-200"></p>
+                            <p class="flex-fill" id="change-1"></p>
                         </div>
                     </div>
                     <div class="tab-pane fade p-2" id="desc-content" role="tabpanel">

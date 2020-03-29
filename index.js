@@ -30,13 +30,8 @@ export function changeDisplay(page,status){
     
         let table=document.querySelector("#main-table");
         table.classList.add("d-none");
-
-        let warning=document.querySelector("#warning");
-
-        if(status === "start"){
-            warning.classList.add("d-none");
-        }
-    
+        
+        
         getInfo(x,y,z,page,status)
     }
 }
