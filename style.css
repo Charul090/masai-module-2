@@ -2,6 +2,7 @@ header{
     background-color: white;
     font-family: 'Times New Roman', Times, serif;
     color:#4A148C;
+    border-bottom: 1px solid #F5F5F5;
 }
 
 canvas{

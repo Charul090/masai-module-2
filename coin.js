@@ -371,8 +371,6 @@ function displaySocial(data){
 
     let display=document.querySelector("#social-content");
 
-    console.log(data);
-
     let homepage=document.createElement("p");
     let link=document.createElement("a");
     link.setAttribute("href",data["links"]["homepage"][0]);
